@@ -26,17 +26,17 @@
   </head>
   <body>
     <div class="stickyHeader">
-      <img src="images/gmail_icon.png" alt="Gmail icon" id="gmailIcon">
-      <span id="gmailtext">Gmail</span>
-      
-      <div class="menu">
-        <input type="button" class="btn btn-primary" id="listing" value="Listing Email">
-        <input type="button" class="btn btn-success" id="sending" value="Sending Email">
-        <input type="search" id="search" placeholder="Search" autocomplete="off">
-        <input type="button" class="btn btn-warning" id="searchbtn" value="Searching Email">
-      </div>
-  </div>
-
+        <img src="images/gmail_icon.png" alt="Gmail icon" id="gmailIcon">
+        <span id="gmailtext">Gmail</span>
+        
+        <div class="menu">
+          <input type="button" class="btn btn-primary" id="listing" value="Listing Email">
+          <input type="button" class="btn btn-success" id="sending" value="Sending Email">
+          <input type="search" id="search" placeholder="Search" autocomplete="off">
+          <input type="button" class="btn btn-warning" id="searchbtn" value="Searching Email">
+        </div>
+    </div>
+    <div id="snackbar">You are signed in...!!!!</div>
     <div class="container">
         <p>Authorize with your gmail-account to continue</p>
         <!--Add buttons to initiate auth sequence and sign out-->
@@ -99,6 +99,9 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
+          var x = document.getElementById("snackbar");
+          x.className = "show";
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
           listLabels();
         } else {
           authorizeButton.style.display = 'block';
